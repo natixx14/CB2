@@ -23,9 +23,9 @@ For instance for a local training:
 
 ```bash
  python train.py device='cpu' \
-    model=cb2-HCI dataset=cifar-10 \
+    dataset=cifar-10  black_box=resnet20 \
     r_ae=1 r_align=100 r_pred=100 \
-    epochs=15 black_box=resnet20
+    epochs=15 lr=1e-3
 
 ```
 
