@@ -1,0 +1,22 @@
+cb2_home: ${oc.env:PWD}/../..
+device : "cuda"
+
+bb_dir: ${cb2_home}/data/generated/models
+path_dataset_dico: ${path_generated_data}/concepts_dico
+path_generated_data: ${cb2_home}/data/generated
+#########################################
+# SAVE DIR
+#########################################
+dataset_dir: ${cb2_home}/data/raw/huggingface
+data_dir: ${cb2_home}/data/generated/dataset
+dataset: "zh-plus/tiny-imagenet"
+clip_model: 'openai/clip-vit-large-patch14'
+black_box: 'resnet18'
+split: "train"
+
+#########################################
+# PARAMETERS
+#########################################
+random_seed: 1
+batch_size: 64
+concepts: "COCA"

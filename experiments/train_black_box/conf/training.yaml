@@ -1,0 +1,25 @@
+cb2_home: "../.."
+
+device : "cuda"
+
+path_raw_dataset: ${cb2_home}/data/raw/huggingface
+path_generated_data: "${cb2_home}/data/generated"
+
+# INTERPRETOR PARAMETERS
+lr: 1e-3
+epochs: 15
+training_ablation: 1
+random_seed : 1
+
+batch_size : 64
+dataset: "fashion_mnist"
+black_box: "resnet18"
+
+experiment_name: ${dataset}/${black_box}
+# REGULARISATION
+r_pred: 1
+
+hydra:
+  run:
+    dir: ${cb2_home}/data/generated/models/${experiment_name}
+

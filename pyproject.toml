@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "cb2"
+version = "0.0.1"
+dependencies = [
+    "numpy",
+    'importlib-metadata; python_version<"3.8"',
+    "torch",
+    "torchvision",
+    "transformers",
+    "datasets",
+    "pandas",
+    "hydra-core",
+    "hydra-submitit-launcher",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn"
+]
+

@@ -1,0 +1,42 @@
+cb2_home: ${oc.env:PWD}/../../
+
+device : cuda
+
+
+# PATHS
+path_generated_data: ${cb2_home}/data/generated
+path_dataset_dico: ${path_generated_data}/concepts_dico
+path_dataset: ${path_generated_data}/dataset
+
+# INTERPRETOR PARAMETERS
+lr: 1e-3
+epochs: 15
+training_ablation: 1
+random_seed : 1
+batch_size : 64
+
+# HCI
+concepts_per_head: 0
+whites_by_aggregator: 10
+shared_concepts_proportion: 0.5
+type_of_hci: "2_layers"
+
+# EXPE
+concepts: "GPT/cifar10_150"
+black_box: 'resnet18'
+dataset: "cifar-10"
+clip_model: 'openai/clip-vit-large-patch14'
+experiment_name: ${dataset}/${black_box}/batch_${batch_size}/
+
+# REGULARISATION
+r_ae: 1000
+r_align: 100
+r_pred: 1
+temp: 1
+
+
+hydra:
+  run:
+    dir: ${cb2_home}/models/outputs/${experiment_name}
+  sweep:
+    dir: ${cb2_home}/models/multirun/${dataset}/${black_box}/${concepts}/learn_${batch_size}_${lr}/white_${concepts_per_head}/sim_${r_sim}/hsic_${r_hsic}/regul_${r_sparse}_${r_ae}_${r_align}_${r_pred}
